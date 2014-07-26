@@ -9,7 +9,8 @@ namespace WebApplication1
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery.min.js",
+                        "~/Scripts/jquery.widget.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -20,12 +21,18 @@ namespace WebApplication1
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      //"~/Scripts/bootstrap.js",
+                      //"~/Scripts/respond.js",
+                      "~/js/metro.min.js"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      
+                      "~/css/metro-bootstrap.min.css",
+                      "~/css/iconFont.min.css",
+                      "~/css/metro-bootstrap-responsive.min.css"
+                      )
+                      );
         }
     }
 }
