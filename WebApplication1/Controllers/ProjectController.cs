@@ -43,19 +43,20 @@ namespace Koo.Web
             }
             return View(project);
         }
-
+        [Authorize]
         // GET: /Default1/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admins")]
         // POST: /Default1/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Title,ShortDescription,Description,CoverImageUrl,IsHighlighted,RatingValue,Status")] Project project)
+        public ActionResult Create([Bind(Include = "Id,Title,ShortDescription,Description,CoverImageUrl,IsHighlighted,RatingValue,Status")] Project project)
         {
             if (ModelState.IsValid)
             {
@@ -68,6 +69,7 @@ namespace Koo.Web
         }
 
         // GET: /Default1/Edit/5
+        [Authorize(Roles = "Admins")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -85,9 +87,10 @@ namespace Koo.Web
         // POST: /Default1/Edit/5
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
+        [Authorize(Roles = "Admins")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Title,ShortDescription,Description,CoverImageUrl,IsHighlighted,RatingValue,Status")] Project project)
+        public ActionResult Edit([Bind(Include = "Id,Title,ShortDescription,Description,CoverImageUrl,IsHighlighted,RatingValue,Status")] Project project)
         {
             if (ModelState.IsValid)
             {
@@ -97,6 +100,8 @@ namespace Koo.Web
             }
             return View(project);
         }
+
+        [Authorize(Roles = "Admins")]
 
         // GET: /Default1/Delete/5
         public ActionResult Delete(int? id)
@@ -112,6 +117,8 @@ namespace Koo.Web
             }
             return View(project);
         }
+
+        [Authorize(Roles = "Admins")]
 
         // POST: /Default1/Delete/5
         [HttpPost, ActionName("Delete")]
