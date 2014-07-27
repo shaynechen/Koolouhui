@@ -1,19 +1,20 @@
-namespace WebApplication1.Migrations
+namespace Koo.Web.Migrations
 {
+    using Koo.Web.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WebApplication1.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Koo.Web.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "WebApplication1.Models.ApplicationDbContext";
+            ContextKey = "Koo.Web.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(WebApplication1.Models.ApplicationDbContext context)
+        protected override void Seed(Koo.Web.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -27,6 +28,16 @@ namespace WebApplication1.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Projects.AddOrUpdate(
+                p => p.Title,
+                new Project { Title = "上海浦江", ShortDescription = "浦江浦江浦江浦江浦江浦江浦江 ", Description = "浦江浦江浦江浦江浦江浦江浦江浦江浦江浦江", IsHighlighted = true, RatingValue = 5, CoverImageUrl = "4.jpg" },
+
+                new Project { Title = "上海新江湾君庭", ShortDescription = "新江湾君庭 新江湾君庭 新江湾君庭 新江湾君庭", Description = "新江湾 新江湾新江湾新江湾新江湾新江湾新江湾新江湾新江湾", IsHighlighted = true, RatingValue = 3, CoverImageUrl = "2.jpg" },
+
+                new Project { Title = "上海新江湾君庭2", ShortDescription = "新江湾君庭 新江湾君庭 新江湾君庭 新江湾君庭", Description = "新江湾 新江湾新江湾新江湾新江湾新江湾新江湾新江湾新江湾", IsHighlighted = false, RatingValue = 5, CoverImageUrl = "3.jpg" }
+
+                );
         }
     }
 }

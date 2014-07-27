@@ -201,22 +201,6 @@
         }
     };
 
-    $.Metro.initPanels = function(area){
-        if (area != undefined) {
-            $(area).find('[data-role=panel]').panel();
-        } {
-            $('[data-role=panel]').panel();
-        }
-    };
-
-    $.Metro.initTileTransform = function(area){
-        if (area != undefined) {
-            $(area).find('[data-click=transform]').tileTransform();
-        } {
-            $('[data-click=transform]').tileTransform();
-        }
-    };
-
     $.Metro.initAll = function(area) {
         $.Metro.initAccordions(area);
         $.Metro.initButtonSets(area);
@@ -242,30 +226,9 @@
         $.Metro.initStreamers(area);
         $.Metro.initDragTiles(area);
         $.Metro.initPulls(area);
-        $.Metro.initPanels(area);
-        $.Metro.initTileTransform(area);
     }
 })(jQuery);
 
 $(function(){
     $.Metro.initAll();
-});
-
-
-$(function(){
-    if (METRO_AUTO_REINIT) {
-        //$(".metro").bind('DOMSubtreeModified', function(){            $.Metro.initAll();        });
-        var originalDOM = $('.metro').html(),
-            actualDOM;
-
-        setInterval(function () {
-            actualDOM = $('.metro').html();
-
-            if (originalDOM !== actualDOM) {
-                originalDOM = actualDOM;
-
-                $.Metro.initAll();
-            }
-        }, 500);
-    }
 });

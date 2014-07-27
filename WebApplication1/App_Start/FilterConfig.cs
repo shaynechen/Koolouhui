@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace WebApplication1
+namespace Koo.Web
 {
     public class FilterConfig
     {

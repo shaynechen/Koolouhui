@@ -1,181 +1,84 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 种 房 网</title>
-
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="product" content="种房网">
+    <meta name="description" content="种房网，种下房子就有收获">
+    <meta name="author" content="柴培熙">
+    <meta name="company" content="上海市融化银天股权投资管理有限公司" />
+    <meta name="keywords" content="众筹, 房产, 理财, 投资, 收益">
+    <title>@ViewBag.Title</title>
 </head>
-<body>
-    <nav class="navigation-bar">
-
-        <div class="navigation-bar-content">
-
-            <a href="/" class="element"><span class="icon-grid-view"></span> METRO UI CSS <sup>2.0</sup></a>
-
-            <span class="element-divider"></span>
-
-
-            <a class="pull-menu" href="#"></a>
-
-            <ul class="element-menu">
-
-                <li>
-
-                    <a class="dropdown-toggle" href="#">Base CSS</a>
-
-                    <ul class="dropdown-menu " data-role="dropdown">
-
-                        <li><a href="requirements.html">Requirements</a></li>
-
-                        <li>
-
-                            <a href="#" class="dropdown-toggle">General CSS</a>
-
-                            <ul class="dropdown-menu" data-role="dropdown">
-
-                                <li><a href="global.html">Global styles</a></li>
-
-                                <li><a href="grid.html">Grid system</a></li>
-
-                                <div class="divider"></div>
-
-                                <li><a href="typography.html">Typography</a></li>
-
-                                <li><a href="tables.html">Tables</a></li>
-
-                                <li><a href="forms.html">Forms</a></li>
-
-                                <li><a href="buttons.html">Buttons</a></li>
-
-                                <li><a href="images.html">Images</a></li>
-
-                            </ul>
-
-                        </li>
-
-                        <li class="divider"></li>
-
-                        <li><a href="responsive.html">Responsive</a></li>
-
-                        <li class="disabled"><a href="layouts.html">Layouts and templates</a></li>
-
-                        <li class="divider"></li>
-
-                        <li><a href="icons.html">Icons</a></li>
-
-                    </ul>
-
-                </li>
-
-                <li>
-
-                    <a class="dropdown-toggle" href="#">Community</a>
-
-                    <ul class="dropdown-menu" data-role="dropdown">
-
-                        <li class="disabled"><a href="http://blog.metroui.net">Blog</a></li>
-
-                        <li class="disabled"><a href="http://forum.metroui.net">Community Forum</a></li>
-
-                        <li class="divider"></li>
-
-                        <li><a href="https://github.com/olton/Metro-UI-CSS">Github</a></li>
-
-                        <li class="divider"></li>
-
-                        <li><a href="https://github.com/olton/Metro-UI-CSS/blob/master/LICENSE">License</a></li>
-
-                    </ul>
-
-                </li>
-
-            </ul>
-
-
-
-            <div class="no-tablet-portrait">
-
+<body class="metro" style="background-color: #efeae3">
+    <section id="scripts">
+        <!-- Load Css -->
+        @Styles.Render("~/Content/css")
+        <!-- Load JavaScript Libraries -->
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/metro")
+        @Scripts.Render("~/bundles/modernizr")
+    </section>
+    <header class="bg-dark">
+        <div class="navigation-bar dark fixed-top">
+            <div class="navigation-bar-content container">
+                @* below html code config a logo -should be avoid *@
+                <a href="/" class="element" style="font-size:22px">
+                    种<i class="icon-home on-right on-left"
+                        style="background: red;
+    color: white;
+    padding-left:12px; padding-right:8px; padding-bottom:10px;
+    border-radius: 50%"></i>网
+                </a>
+                @* --end of logo configuration-- *@
                 <span class="element-divider"></span>
-
-                <a class="element brand" href="#"><span class="icon-spin"></span></a>
-
-                <a class="element brand" href="#"><span class="icon-printer"></span></a>
-
-                <span class="element-divider"></span>
-
-
-
-                <div class="element input-element">
-
-                    <form>
-
-                        <div class="input-control text">
-
-                            <input type="text" placeholder="Search...">
-
-                            <button class="btn-search"></button>
-
+                <a class="element1 pull-menu" href="#"></a>
+                <ul class="element-menu">
+                    <li>
+                        <a class="element" href="~/Projects/">浏览项目</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-toggle" href="#">支持与帮助</a>
+                        <ul class="dropdown-menu dark" data-role="dropdown">
+                            <li class="element"><a href="#">了解我们</a></li>
+                            <li class="element"><a href="#">如何运作</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="element input-element">
+                            @using (Html.BeginForm("Search", "Projects", FormMethod.Get, new { id = "search form" }))
+                            {
+                            <div class="input-control text">
+                                <input name="keyWord" size="42" type="text" placeholder="搜索项目或产品 例如：上海 商业" />
+                                <button type="submit" class="btn-search"></button>
+                            </div>
+                            }
                         </div>
+                    </li>
 
-                    </form>
-
-                </div>
-
-
-
-                <div class="element place-right">
-
-                    <a class="dropdown-toggle" href="#">
-
-                        <span class="icon-cog"></span>
-
-                    </a>
-
-                    <ul class="dropdown-menu place-right" data-role="dropdown">
-
-                        <li><a href="#">Products</a></li>
-
-                        <li><a href="#">Download</a></li>
-
-                        <li><a href="#">Support</a></li>
-
-                        <li><a href="#">Buy Now</a></li>
-
-                    </ul>
-
-                </div>
-
-                <span class="element-divider place-right"></span>
-
-                <button class="element image-button image-left place-right">
-
-                    Sergey Pimenov
-
-                    <img src="images/me.jpg" />
-
-                </button>
-
+                </ul>
+                <ul class="element-menu place-right">
+                    <li>
+                        <div class="element tile-content icon place-right">
+                            @* to-do cart *@
+                            <a href="#"><i class="icon-cart-2"></i>(0)</a>
+                        </div>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
             </div>
-
         </div>
-
-    </nav>
-
-    <div class="container body-content">
+    </header>
+    <div class="container" style="padding:50px 20px">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
-        </footer>
     </div>
+    <div class="bg-dark">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+        @* footer - copyright *@
+        <div class="container page-footer tertiary-text bg-dark fg-white fixed-bottom" style="padding: 10px">
+            2014,  &copy;种 房 网 版权所有 ICP备案预留位置
+        </div>
+    </div>
     @RenderSection("scripts", required: false)
 </body>
 </html>

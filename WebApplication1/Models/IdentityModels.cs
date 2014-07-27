@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace WebApplication1.Models
+namespace Koo.Web.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -13,5 +13,7 @@ namespace WebApplication1.Models
             : base("DefaultConnection")
         {
         }
+
+        public System.Data.Entity.DbSet<Koo.Web.Models.Project> Projects { get; set; }
     }
 }

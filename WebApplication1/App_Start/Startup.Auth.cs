@@ -3,7 +3,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 
-namespace WebApplication1
+namespace Koo.Web
 {
     public partial class Startup
     {

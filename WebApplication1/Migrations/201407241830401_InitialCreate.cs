@@ -1,4 +1,4 @@
-namespace WebApplication1.Migrations
+namespace Koo.Web.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
