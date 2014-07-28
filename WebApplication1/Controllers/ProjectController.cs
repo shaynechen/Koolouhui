@@ -20,13 +20,18 @@ namespace Koo.Web
 
             ///it should invoke the search instance in the BLL
             ///currently considering the data volume is less, just use LINQ to make it work.
-            return View(@"index", db.Projects.Where(p => p.Title.Contains(keyWord)));
+            ///
+            var results = db.Projects.Where(p => p.Title.Contains(keyWord)
+                || p.ShortDescription.Contains(keyWord)
+                || p.Description.Contains(keyWord)
+                );
+            return View(@"index", results);
         }
 
         // GET: /Default1/
         public ActionResult Index()
         {
-            return View(db.Projects.ToList());
+            return View(db.Projects.Take(10).ToList());
         }
 
         // GET: /Default1/Details/5
