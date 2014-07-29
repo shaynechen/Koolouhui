@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koo.Web.UI", "WebApplicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koolouhui.Web.UI", "Koolouhui\Koolouhui.Web.UI.csproj", "{4C9A4EE1-0B88-48A7-82DC-69FA064B5290}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koolouhui.Tests", "Koolouhui.Tests\Koolouhui.Tests.csproj", "{F567E7C5-6985-408F-9F1C-27755F5D6649}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4C9A4EE1-0B88-48A7-82DC-69FA064B5290}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C9A4EE1-0B88-48A7-82DC-69FA064B5290}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C9A4EE1-0B88-48A7-82DC-69FA064B5290}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F567E7C5-6985-408F-9F1C-27755F5D6649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F567E7C5-6985-408F-9F1C-27755F5D6649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F567E7C5-6985-408F-9F1C-27755F5D6649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F567E7C5-6985-408F-9F1C-27755F5D6649}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
