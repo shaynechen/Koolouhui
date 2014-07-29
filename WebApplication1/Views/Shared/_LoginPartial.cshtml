@@ -8,7 +8,10 @@
         <ul class="element-menu place-right">
 
             <li>
-                @Html.ActionLink("你好 " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "管理" })
+                <a href="/Account/Manage" title="管理账户"  class="element place-right">
+                    <span class="icon-pictures"></span>
+                    <span>@User.Identity.GetUserName()</span>
+                </a>
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">注销</a></li>
         </ul>
