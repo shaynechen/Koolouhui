@@ -178,15 +178,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407241830401_InitialCreate.cs" />
-    <Compile Include="Migrations\201407241830401_InitialCreate.Designer.cs">
-      <DependentUpon>201407241830401_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407271629404_projects.cs" />
-    <Compile Include="Migrations\201407271629404_projects.Designer.cs">
-      <DependentUpon>201407271629404_projects.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Project.cs" />
@@ -460,14 +451,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407241830401_InitialCreate.resx">
-      <DependentUpon>201407241830401_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407271629404_projects.resx">
-      <DependentUpon>201407271629404_projects.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
