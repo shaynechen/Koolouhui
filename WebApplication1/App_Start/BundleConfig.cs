@@ -18,7 +18,9 @@ namespace Koo.Web
                         "~/js/jquery/jquery.mousewheel.js",
                         "~/js/jquery/jquery.widget.min.js",
                 //--------------------------//
-                        "~/js/prettify/prettify.js"
+                        "~/js/prettify/prettify.js",
+                        "~/Scripts/jquery-1.10.2.js",
+                        "~/Scripts/jquery.unobtrusive-ajax.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

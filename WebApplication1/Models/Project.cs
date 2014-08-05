@@ -38,5 +38,7 @@ namespace Koo.Web.Models
 
         public string Status { get; set; }
 
+        public IList<SupportAmount> SupportAmounts { get; set; }
+
     }
 }

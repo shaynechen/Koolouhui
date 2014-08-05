@@ -38,6 +38,26 @@ namespace Koo.Web.Migrations
                 new Project { Title = "上海新江湾君庭2", ShortDescription = "新江湾君庭 新江湾君庭 新江湾君庭 新江湾君庭", Description = "新江湾 新江湾新江湾新江湾新江湾新江湾新江湾新江湾新江湾", IsHighlighted = false, RatingValue = 5, CoverImageUrl = "3.jpg" }
 
                 );
+
+            /* context.SupportAmounts.AddOrUpdate(
+                 a => a.Id,
+                 new SupportAmount {  ProjectId = 1, Amount = 1200},
+                 new SupportAmount {  ProjectId = 1, Amount = 1200},
+                 new SupportAmount {  ProjectId = 1, Amount = 1200},
+                 new SupportAmount {  ProjectId = 1, Amount = 1200},
+                 new SupportAmount {  ProjectId = 2, Amount = 1200},
+                 new SupportAmount {  ProjectId = 2, Amount = 1200},
+                 new SupportAmount {  ProjectId = 2, Amount = 1200},
+                 new SupportAmount {  ProjectId = 3, Amount = 1200},
+                 new SupportAmount {  ProjectId = 3, Amount = 1200},
+                 new SupportAmount {  ProjectId = 3, Amount = 1200},
+                 new SupportAmount {  ProjectId = 3, Amount = 1200},
+                 new SupportAmount {  ProjectId = 3, Amount = 1200},
+                 new SupportAmount {  ProjectId = 3, Amount = 1200},
+                 new SupportAmount {  ProjectId = 3, Amount = 1200},
+                 new SupportAmount {  ProjectId = 1, Amount = 1200}
+
+                 );*/
         }
     }
 }

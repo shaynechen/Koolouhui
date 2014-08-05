@@ -7,13 +7,13 @@ namespace Koo.Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class supportamount : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(supportamount));
         
         string IMigrationMetadata.Id
         {
-            get { return "201407241830401_InitialCreate"; }
+            get { return "201408040615002_supportamount"; }
         }
         
         string IMigrationMetadata.Source

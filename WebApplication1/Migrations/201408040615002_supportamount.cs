@@ -3,11 +3,38 @@ namespace Koo.Web.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class supportamount : DbMigration
     {
         public override void Up()
         {
+            /*CreateTable(
+                "dbo.Projects",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Title = c.String(nullable: false, maxLength: 50),
+                        ShortDescription = c.String(nullable: false, maxLength: 150),
+                        Description = c.String(nullable: false),
+                        CoverImageUrl = c.String(),
+                        IsHighlighted = c.Boolean(nullable: false),
+                        RatingValue = c.Int(nullable: false),
+                        Status = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);*/
+            
             CreateTable(
+                "dbo.SupportAmounts",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ProjectId = c.Int(nullable: false),
+                        Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Projects", t => t.ProjectId, cascadeDelete: true)
+                .Index(t => t.ProjectId);
+            
+          /*  CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -64,25 +91,29 @@ namespace Koo.Web.Migrations
                 .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.RoleId)
-                .Index(t => t.UserId);
+                .Index(t => t.UserId);*/
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.AspNetUserClaims", "User_Id", "dbo.AspNetUsers");
+           /* DropForeignKey("dbo.AspNetUserClaims", "User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.SupportAmounts", "ProjectId", "dbo.Projects");
             DropIndex("dbo.AspNetUserClaims", new[] { "User_Id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
-            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
-            DropTable("dbo.AspNetUserRoles");
+            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });*/
+            DropIndex("dbo.SupportAmounts", new[] { "ProjectId" });
+            /*DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.SupportAmounts");
+            DropTable("dbo.Projects");*/
         }
     }
 }

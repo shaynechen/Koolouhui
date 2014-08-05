@@ -15,5 +15,7 @@ namespace Koo.Web.Models
         }
 
         public System.Data.Entity.DbSet<Koo.Web.Models.Project> Projects { get; set; }
+
+        public System.Data.Entity.DbSet<Koo.Web.Models.SupportAmount> SupportAmounts { get; set; }
     }
 }

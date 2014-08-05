@@ -14,7 +14,31 @@ namespace Koo.Web
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        //[Ajax]
+        public JsonResult AddtoCart(string Id, string amount)
+        {
 
+            //string sessionId = HttpContext.Session.SessionID;
+
+            List<CartItem> cartItems = new List<CartItem>();
+            int count = 0;
+            if (HttpContext.Session["CurrentCart"] != null)
+            {
+                cartItems = (List<CartItem>)HttpContext.Session["CurrentCart"];
+            }
+
+            cartItems.Add(new CartItem { ProjectId = int.Parse(Id), Amount = amount });
+            count = cartItems.Count;
+            HttpContext.Session["CurrentCart"] = cartItems;
+
+            return Json(new
+            {
+                Success = true,
+                Message = "ok",
+                Count = count,
+                Amount = amount
+            });
+        }
         public ActionResult Search(string keyWord)
         {
 
@@ -46,6 +70,7 @@ namespace Koo.Web
             {
                 return HttpNotFound();
             }
+            project.SupportAmounts = db.SupportAmounts.Where(s => s.ProjectId == project.Id).ToList();
             return View(project);
         }
         [Authorize]
