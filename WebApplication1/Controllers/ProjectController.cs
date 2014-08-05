@@ -15,6 +15,8 @@ namespace Koo.Web
         private ApplicationDbContext db = new ApplicationDbContext();
 
         //[Ajax]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public JsonResult AddtoCart(string Id, string amount)
         {
 

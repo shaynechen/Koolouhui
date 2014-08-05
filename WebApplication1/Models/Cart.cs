@@ -13,5 +13,7 @@ namespace Koo.Web.Models
         public int ProjectId { get; set; }
 
         public string Amount { get; set; }
+
+        public Project Project { get; set; }
     }
 }

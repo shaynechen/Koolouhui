@@ -10,6 +10,7 @@
             <div class="row">
                 <div class="span8">
                     <h3>@Html.DisplayFor(model => model.Title)</h3>
+
                     <hr />
                     <div class="tab-control" data-role="tab-control">
                         <ul class="tabs">
@@ -59,6 +60,9 @@
                             function onAddtoCartCompleted(context) {
                                 if (context.Success) {
                                     $("#cart").html('<i class="icon-cart-2"></i> (' + context.Count + ')');
+                                    $.Notify({timeout:5000, caption: "提示", content: "已经添加至购物车成功！", shadow: true, style: { background: '#1ba1e2', color: 'white' }});
+                                } else {
+                                    $.Notify({ timeout: 5000, caption: "警告", content: "无法加入购物车！", shadow: true, style: { background: '#1ba1e2', color: 'white' } });
                                 }
                             }
                         </script>
@@ -80,10 +84,9 @@
                                 using (Ajax.BeginForm("AddtoCart", "Projects", new AjaxOptions
                                 {
                                     OnSuccess = "onAddtoCartCompleted"
-                                    //OnComplete = "onAddtoCartCompleted"
                                 }))
                                 {
-                                    @*@Html.AntiForgeryToken()*@
+                                    @Html.AntiForgeryToken()
                                     @Html.HiddenFor(i => i.Id)
                                     <li class="stick bg-yellow">
                                         <a class="dropdown-toggle" href="#"><i class="icon-tree-view"></i>支持 ￥@item.Amount</a>
@@ -94,37 +97,7 @@
                                         </ul>
                                     </li>
                                 }
-
-                                @*using (Html.BeginForm("AddtoCart", "Projects", FormMethod.Post))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        @Html.HiddenFor(i => i.Id)
-                                        <li class="stick bg-yellow">
-                                            <a class="dropdown-toggle" href="#"><i class="icon-tree-view"></i>支持 ￥@item.Amount</a>
-                                            <ul class="dropdown-menu" data-role="dropdown">
-                                                <li><div class="example">所获得支持回报描述</div></li>
-                                                <li><button>支持 <span class="icon-thumbs-up" /></button></li>
-                                            </ul>
-                                        </li>
-                                    }*@
                             }
-
-
-                            @*<li class="stick bg-yellow">
-                                    <a class="dropdown-toggle" href="#"><i class="icon-tree-view"></i>支持 ￥150,000</a>
-                                    <ul class="dropdown-menu" data-role="dropdown">
-                                        <li><div class="example">所获得支持回报描述</div></li>
-                                        <li><a href="">支持 <span class="icon-thumbs-up" /></a></li>
-
-                                    </ul>
-                                </li>*@
-                            @*<li class="stick bg-yellow">
-                                    <a class="dropdown-toggle" href="#"><i class="icon-tree-view"></i>支持 ￥250,000</a>
-                                    <ul class="dropdown-menu" data-role="dropdown">
-                                        <li><div class="example">所获得支持回报描述</div></li>
-                                        <li><a href="">支持 <span class="icon-thumbs-up" /></a></li>
-                                    </ul>
-                                </li>*@
                         </ul>
                     </nav>
                 </div>
@@ -133,34 +106,3 @@
     </div>
 </div>
 <div style="padding-bottom:20px"></div>
-@*<div>
-        <h4>Project</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Title)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Title)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ShortDescription)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ShortDescription)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-
-        </dl>
-    </div>*@
-
