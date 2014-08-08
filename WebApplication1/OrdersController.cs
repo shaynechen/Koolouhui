@@ -10,132 +10,107 @@ using Koo.Web.Models;
 
 namespace Koo.Web
 {
-    public class ProjectsController : Controller
+    public class OrdersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-
-        public ActionResult Search(string keyWord)
-        {
-
-            ///it should invoke the search instance in the BLL
-            ///currently considering the data volume is less, just use LINQ to make it work.
-            ///
-            var results = db.Projects.Where(p => p.Title.Contains(keyWord)
-                || p.ShortDescription.Contains(keyWord)
-                || p.Description.Contains(keyWord)
-                );
-            return View(@"index", results);
-        }
-
-        // GET: /Default1/
+        // GET: /Orders/
         public ActionResult Index()
         {
-            return View(db.Projects.Take(10).ToList());
+            return View(db.Orders.ToList());
         }
 
-        // GET: /Default1/Details/5
+        // GET: /Orders/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
-            if (project == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            project.SupportAmounts = db.SupportAmounts.Where(s => s.ProjectId == project.Id).ToList();
-
-            //project.SupportedInfo = db.OrderItems.Where(oi => (oi.SupportProject.ProjectId == project.Id)).ToList();
-            
-            return View(project);
+            return View(order);
         }
-        [Authorize]
-        // GET: /Default1/Create
+
+        // GET: /Orders/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        [Authorize(Roles = "Admins")]
-        // POST: /Default1/Create
+        // POST: /Orders/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,ShortDescription,Description,CoverImageUrl,IsHighlighted,RatingValue,Status")] Project project)
+        public ActionResult Create([Bind(Include="Id")] Order order)
         {
             if (ModelState.IsValid)
             {
-                db.Projects.Add(project);
+                db.Orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(project);
+            return View(order);
         }
 
-        // GET: /Default1/Edit/5
-        [Authorize(Roles = "Admins")]
+        // GET: /Orders/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
-            if (project == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(project);
+            return View(order);
         }
 
-        // POST: /Default1/Edit/5
+        // POST: /Orders/Edit/5
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
-        [Authorize(Roles = "Admins")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,ShortDescription,Description,CoverImageUrl,IsHighlighted,RatingValue,Status")] Project project)
+        public ActionResult Edit([Bind(Include="Id")] Order order)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(project).State = EntityState.Modified;
+                db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(project);
+            return View(order);
         }
 
-        [Authorize(Roles = "Admins")]
-
-        // GET: /Default1/Delete/5
+        // GET: /Orders/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
-            if (project == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(project);
+            return View(order);
         }
 
-        [Authorize(Roles = "Admins")]
-
-        // POST: /Default1/Delete/5
+        // POST: /Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Project project = db.Projects.Find(id);
-            db.Projects.Remove(project);
+            Order order = db.Orders.Find(id);
+            db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

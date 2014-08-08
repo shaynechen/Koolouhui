@@ -39,24 +39,23 @@ namespace Koo.Web.Migrations
 
                 );
 
-            /* context.SupportAmounts.AddOrUpdate(
+            /*context.SupportAmounts.AddOrUpdate(
                  a => a.Id,
-                 new SupportAmount {  ProjectId = 1, Amount = 1200},
-                 new SupportAmount {  ProjectId = 1, Amount = 1200},
-                 new SupportAmount {  ProjectId = 1, Amount = 1200},
-                 new SupportAmount {  ProjectId = 1, Amount = 1200},
-                 new SupportAmount {  ProjectId = 2, Amount = 1200},
-                 new SupportAmount {  ProjectId = 2, Amount = 1200},
-                 new SupportAmount {  ProjectId = 2, Amount = 1200},
-                 new SupportAmount {  ProjectId = 3, Amount = 1200},
-                 new SupportAmount {  ProjectId = 3, Amount = 1200},
-                 new SupportAmount {  ProjectId = 3, Amount = 1200},
-                 new SupportAmount {  ProjectId = 3, Amount = 1200},
-                 new SupportAmount {  ProjectId = 3, Amount = 1200},
-                 new SupportAmount {  ProjectId = 3, Amount = 1200},
-                 new SupportAmount {  ProjectId = 3, Amount = 1200},
-                 new SupportAmount {  ProjectId = 1, Amount = 1200}
-
+                 new SupportAmount { ProjectId = 1, Amount = 1200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 1, Amount = 2200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 1, Amount = 12000, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 1, Amount = 1200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 2, Amount = 1200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 2, Amount = 1200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 2, Amount = 1200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 3, Amount = 1200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 3, Amount = 1200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 3, Amount = 1200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 3, Amount = 1200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 3, Amount = 1200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 3, Amount = 1200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount { ProjectId = 3, Amount = 1200, ReturnContent = "180天 - 年化7.8%" },
+                 new SupportAmount {  ProjectId = 1, Amount = 1200, ReturnContent="180天 - 年化7.8%"}
                  );*/
         }
     }

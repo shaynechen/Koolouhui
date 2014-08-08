@@ -26,19 +26,21 @@ namespace Koo.Web.Models
 
         public string CoverImageUrl { get; set; }
 
+        [Required]
+        public float TargetAmount { get; set; }
+
+
         /// <summary>
         /// should be removed
         /// </summary>
         public bool IsHighlighted { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public int RatingValue { get; set; }
 
         public string Status { get; set; }
 
         public IList<SupportAmount> SupportAmounts { get; set; }
 
+        public IList<OrderItem> SupportedInfo { get; set; }
     }
 }

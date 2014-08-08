@@ -183,12 +183,35 @@
     <Compile Include="Migrations\201408040615002_supportamount.Designer.cs">
       <DependentUpon>201408040615002_supportamount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408070448218_updateSupportamountWithReturnContent.cs" />
+    <Compile Include="Migrations\201408070448218_updateSupportamountWithReturnContent.Designer.cs">
+      <DependentUpon>201408070448218_updateSupportamountWithReturnContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408070523434_projecInfoUpdate-SupportedOrders.cs" />
+    <Compile Include="Migrations\201408070523434_projecInfoUpdate-SupportedOrders.Designer.cs">
+      <DependentUpon>201408070523434_projecInfoUpdate-SupportedOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408070819231_orderinfoupdate.cs" />
+    <Compile Include="Migrations\201408070819231_orderinfoupdate.Designer.cs">
+      <DependentUpon>201408070819231_orderinfoupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408070833294_orderinfosupdate.cs" />
+    <Compile Include="Migrations\201408070833294_orderinfosupdate.Designer.cs">
+      <DependentUpon>201408070833294_orderinfosupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408070838240_projectorderinfoupdate.cs" />
+    <Compile Include="Migrations\201408070838240_projectorderinfoupdate.Designer.cs">
+      <DependentUpon>201408070838240_projectorderinfoupdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\SupportAmount.cs" />
+    <Compile Include="OrdersController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Util.cs" />
@@ -268,6 +291,8 @@
     <Content Include="images\windows_modern_logo.png" />
     <Content Include="images\word.png" />
     <Content Include="images\word2013icon.png" />
+    <Content Include="images\wuxicover.png" />
+    <Content Include="images\wuxistatus.png" />
     <Content Include="images\x.jpg" />
     <Content Include="js\docs.js" />
     <Content Include="js\github.info.js" />
@@ -457,10 +482,30 @@
     <Content Include="Views\Home\_OnFireProjects.cshtml" />
     <Content Include="Views\Shared\_CartPartial.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201408040615002_supportamount.resx">
       <DependentUpon>201408040615002_supportamount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408070448218_updateSupportamountWithReturnContent.resx">
+      <DependentUpon>201408070448218_updateSupportamountWithReturnContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408070523434_projecInfoUpdate-SupportedOrders.resx">
+      <DependentUpon>201408070523434_projecInfoUpdate-SupportedOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408070819231_orderinfoupdate.resx">
+      <DependentUpon>201408070819231_orderinfoupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408070833294_orderinfosupdate.resx">
+      <DependentUpon>201408070833294_orderinfosupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408070838240_projectorderinfoupdate.resx">
+      <DependentUpon>201408070838240_projectorderinfoupdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

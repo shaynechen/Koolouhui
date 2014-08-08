@@ -18,5 +18,8 @@ namespace Koo.Web.Models
 
         [Required]
         public decimal Amount { get; set; }
+
+        [Required]
+        public string ReturnContent { get; set; }
     }
 }

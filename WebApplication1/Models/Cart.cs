@@ -8,8 +8,6 @@ namespace Koo.Web.Models
 
     public class CartItem
     {
-       // public int Id { get; set; }
-
         public int ProjectId { get; set; }
 
         public string Amount { get; set; }

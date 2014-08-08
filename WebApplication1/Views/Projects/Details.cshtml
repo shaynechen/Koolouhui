@@ -17,7 +17,6 @@
                             <li class="active"><a href="#_page_1">项目主页</a></li>
                             <li><a href="#_page_2">话题(102)</a></li>
                             <li><a href="#_page_3"><i class="icon-thumbs-up">已支持人(20)</i></a></li>
-                            @*<li><a href="#_page_4"><i class="icon-cog"></i></a></li>*@
                             <li class="place-right">
                                 <div class="jiathis_style">
                                     <a class="jiathis_button_qzone"></a>
@@ -60,6 +59,7 @@
                             function onAddtoCartCompleted(context) {
                                 if (context.Success) {
                                     $("#cart").html('<i class="icon-cart-2"></i> (' + context.Count + ')');
+                                    
                                     $.Notify({timeout:5000, caption: "提示", content: "已经添加至购物车成功！", shadow: true, style: { background: '#1ba1e2', color: 'white' }});
                                 } else {
                                     $.Notify({ timeout: 5000, caption: "警告", content: "无法加入购物车！", shadow: true, style: { background: '#1ba1e2', color: 'white' } });
@@ -68,9 +68,9 @@
                         </script>
 
                         <ul>
-                            <li class="title bg-active-blue">项目状态</li>
+                            <li class="title bg-active-blue">项目状态：筹集中</li>
                             <li class="active"></li>
-                            <li class="stick bg-red"><a href="#"><i class="icon-rocket"></i> 目标:￥38,479,848</a></li>
+                            <li class="stick bg-red"><a href="#"><i class="icon-rocket"></i> 目标：￥@Model.TargetAmount 万</a></li>
                             <li class="stick bg-green">
                                 <a href="#" class="bg-hover-lightGreen">
                                     <i class="icon-loading-2"></i> 已达成目标：80%
@@ -81,7 +81,7 @@
 
                             @foreach (var item in Model.SupportAmounts)
                             {
-                                using (Ajax.BeginForm("AddtoCart", "Projects", new AjaxOptions
+                                using (Ajax.BeginForm("Add", "Cart", new AjaxOptions
                                 {
                                     OnSuccess = "onAddtoCartCompleted"
                                 }))
@@ -89,10 +89,10 @@
                                     @Html.AntiForgeryToken()
                                     @Html.HiddenFor(i => i.Id)
                                     <li class="stick bg-yellow">
-                                        <a class="dropdown-toggle" href="#"><i class="icon-tree-view"></i>支持 ￥@item.Amount</a>
+                                        <a class="dropdown-toggle" href="#"><i class="icon-tree-view"></i>支持 ￥ @item.Amount</a>
                                         @Html.Hidden("amount", item.Amount)
                                         <ul class="dropdown-menu" data-role="dropdown">
-                                            <li><div class="example">所获得支持回报描述</div></li>
+                                            <li><div class="example">@item.ReturnContent</div></li>
                                             <li><button>支持 <span class="icon-thumbs-up" /></button></li>
                                         </ul>
                                     </li>
