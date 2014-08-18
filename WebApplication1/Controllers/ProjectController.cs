@@ -15,6 +15,11 @@ namespace Koo.Web
         private ApplicationDbContext db = new ApplicationDbContext();
 
 
+        public ActionResult Seeding()
+        {
+            return View();
+        }
+
         public ActionResult Search(string keyWord)
         {
 

@@ -61,6 +61,24 @@ namespace Koo.Web.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
+        [HttpPost]
+        public JsonResult MLogin(string userName, string password)
+        {
+
+            var user = UserManager.FindAsync(userName, password);
+            bool flag = false;
+            if (user != null && user.Exception == null)
+            {
+                flag = true;
+            }
+
+            return Json(new
+            {
+                Sucess = flag
+            });
+        }
+
         //
         // GET: /Account/Register
         [AllowAnonymous]
@@ -378,7 +396,8 @@ namespace Koo.Web.Controllers
 
         private class ChallengeResult : HttpUnauthorizedResult
         {
-            public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
+            public ChallengeResult(string provider, string redirectUri)
+                : this(provider, redirectUri, null)
             {
             }
 

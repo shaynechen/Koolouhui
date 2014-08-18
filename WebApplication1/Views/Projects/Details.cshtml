@@ -10,12 +10,11 @@
             <div class="row">
                 <div class="span8">
                     <h3>@Html.DisplayFor(model => model.Title)</h3>
-
                     <hr />
                     <div class="tab-control" data-role="tab-control">
                         <ul class="tabs">
                             <li class="active"><a href="#_page_1">项目主页</a></li>
-                            <li><a href="#_page_2">话题(102)</a></li>
+                            @*<a href="#_page_2">话题(102)</a>*@
                             <li><a href="#_page_3"><i class="icon-thumbs-up">已支持人(20)</i></a></li>
                             <li class="place-right">
                                 <div class="jiathis_style">
@@ -38,13 +37,13 @@
                                 @Html.Raw(Html.DisplayTextFor(m => m.Description))
                                 @* end of display the description of project *@
                             </div>
-                            <div class=" frame" id="_page_2">
+                            @*<div class=" frame" id="_page_2">
                                 <div class="input-control textarea">
                                     <textarea>...</textarea>
                                 </div>
                                 <div class="place-right">请 <a href="#">登录</a> 后评论</div>
                                 <hr />
-                            </div>
+                            </div>*@
                             <div class="frame" id="_page_3">...</div>
                         </div>
                     </div>
