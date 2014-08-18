@@ -7,13 +7,13 @@ namespace Koo.Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class supportamount : IMigrationMetadata
+    public sealed partial class projects : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(supportamount));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(projects));
         
         string IMigrationMetadata.Id
         {
-            get { return "201408040615002_supportamount"; }
+            get { return "201407271629404_projects"; }
         }
         
         string IMigrationMetadata.Source

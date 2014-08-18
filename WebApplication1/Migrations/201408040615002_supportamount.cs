@@ -3,7 +3,7 @@ namespace Koo.Web.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class supportamount : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -23,18 +23,6 @@ namespace Koo.Web.Migrations
                 .PrimaryKey(t => t.Id);*/
             
             CreateTable(
-                "dbo.SupportAmounts",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        ProjectId = c.Int(nullable: false),
-                        Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Projects", t => t.ProjectId, cascadeDelete: true)
-                .Index(t => t.ProjectId);
-            
-          /*  CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -112,8 +100,6 @@ namespace Koo.Web.Migrations
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.SupportAmounts");
-            DropTable("dbo.Projects");*/
         }
     }
 }
