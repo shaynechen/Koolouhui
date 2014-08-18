@@ -79,7 +79,7 @@ namespace Koo.Web.Migrations
                 .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.RoleId)
-                .Index(t => t.UserId);*/
+                .Index(t => t.UserId);
             
         }
         
@@ -99,7 +99,7 @@ namespace Koo.Web.Migrations
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.AspNetRoles");
+            DropTable("dbo.AspNetRoles");*/
         }
     }
 }
