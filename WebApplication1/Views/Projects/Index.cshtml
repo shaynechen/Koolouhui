@@ -1,33 +1,34 @@
 ﻿@model IEnumerable<Koo.Web.Models.Project>
 
-
-@foreach (var item in Model)
-{
-    <div class="example">
-        <a href="~/Projects/Details/@item.Id" data-click=" transform">
-            <div class="tile double">
-                <div class="tile-content image" data-click="transform">
-                    <img src="~/images/@item.CoverImageUrl">
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="example">
+            <a href="~/Projects/Details/@item.Id">
+                <div class="tile double">
+                    <div class="tile-content image" data-click="transform">
+                        <img src="~/images/@item.CoverImageUrl">
+                    </div>
+                    <div class="brand bg-dark opacity">
+                        <span class="text">
+                            @* enable the html tag *@
+                            @Html.Raw(item.ShortDescription)
+                            @* end of enable *@
+                        </span>
+                    </div>
                 </div>
-                <div class="brand bg-dark opacity">
-                    <span class="text">
-                        @* enable the html tag *@
-                        @Html.Raw(item.ShortDescription)
-                        @* end of enable *@
-                    </span>
-                </div>
+            </a>
+            <h4>@item.Title</h4>
+            <div class="rating small fg-green"
+                 data-role="rating"
+                 data-static="false"
+                 data-score="@item.RatingValue"
+                 data-stars="5"
+                 data-show-score="false">
             </div>
-        </a>
-        <h4>@item.Title</h4>
-        <div class="rating small fg-green"
-             data-role="rating"
-             data-static="false"
-             data-score="@item.RatingValue"
-             data-stars="5"
-             data-show-score="false">
+            <span class="text">
+                @item.ShortDescription <a href="~/Projects/Details/@item.Id">详细</a>
+            </span>
         </div>
-        <span class="text">
-            @item.ShortDescription <a href="~/Projects/Details/@item.Id">详细</a>
-        </span>
-    </div>
-}
+    }
+</div>

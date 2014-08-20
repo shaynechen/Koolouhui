@@ -10,15 +10,13 @@
     <meta name="keywords" content="众筹, 房产, 理财, 投资, 收益">
     <title>@ViewBag.Title</title>
 </head>
-<body class="metro" style="background-color: #efeae3; font-family:'Microsoft YaHei'">
-    <section id="scripts">
-        <!-- Load Css -->
-        @Styles.Render("~/Content/css")
-        <!-- Load JavaScript Libraries -->
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/metro")
-        @Scripts.Render("~/bundles/modernizr")
-    </section>
+<body class="metro" style="background-color: #efeae3;font-family:'Microsoft YaHei'">
+    <!-- Load Css -->
+    @Styles.Render("~/Content/css")
+    <!-- Load JavaScript Libraries -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/metro")
+    @Scripts.Render("~/bundles/modernizr")
     <header class="bg-dark">
         <div class="navigation-bar dark fixed-top" style="background-color: #26333f">
             <div class="navigation-bar-content container">
@@ -26,7 +24,7 @@
                 <ul class="element-menu">
                     <li>
                         <a href="/" class="element" style="height:65px">
-                           <img src="/images/logo.png" />
+                            <img src="/images/logo.png" />
                         </a>
                     </li>
                 </ul>
@@ -75,7 +73,9 @@
     </div>
     <div class="fixed-bottom">
         @* footer - copyright *@
-        <div class="container page-footer tertiary-text fg-white fixed-bottom" style="padding: 10px">
+
+        <div class="container page-footer tertiary-text fixed-bottom" style="padding: 10px; opacity:0.8">
+            <hr class="bg-grayLight" />
             2014,  &copy;种 房 网 版权所有 沪ICP备14032159号
         </div>
         @* end of footer *@
