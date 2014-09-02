@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using Koo.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using Koo.Web.Models;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Koo.Web.Controllers
 {
@@ -53,7 +50,7 @@ namespace Koo.Web.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid username or password.");
+                    ModelState.AddModelError("", "用户名或者密码不正确。");
                 }
             }
 
@@ -97,6 +94,11 @@ namespace Koo.Web.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser() { UserName = model.UserName };
+                //Regex rx = new Regex(@"/^[1][358]\d{9}$/");
+                //if (rx.IsMatch(model.UserName))
+                //{
+                //    user.mo
+                //}
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

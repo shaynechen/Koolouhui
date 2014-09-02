@@ -11,6 +11,12 @@ namespace Koo.Web.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+
+        /// <summary>
+        /// 提供推荐项目。
+        /// 目前不用。
+        /// </summary>
+        /// <returns></returns>
         public ActionResult OnFireProjects()
         {
             var projects = db.Projects.Where<Project>(p => p.IsHighlighted == true);
@@ -24,20 +30,6 @@ namespace Koo.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
