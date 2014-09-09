@@ -16,8 +16,7 @@ namespace Koo.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }//,
-                ,namespaces :new string[] { "Koo.Web.Controllers"}
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
