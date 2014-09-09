@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using Koo.Web.Areas.BBS.Models;
 using Koo.Web.Models;
 
-namespace Koo.Web.Areas.BBS.Views
+namespace Koo.Web.Areas.BBS.Controllers
 {
     public class PostsController : Controller
     {
