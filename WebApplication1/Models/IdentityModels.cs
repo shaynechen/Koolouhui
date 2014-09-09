@@ -22,5 +22,7 @@ namespace Koo.Web.Models
 
         public System.Data.Entity.DbSet<Koo.Web.Models.OrderItem> OrderItems { get; set; }
 
+        public System.Data.Entity.DbSet<Koo.Web.Areas.BBS.Models.Post> Posts { get; set; }
+
     }
 }
