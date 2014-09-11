@@ -37,9 +37,24 @@
     </table>
 <table style="width:800px" class="text-center" align="center">
     <tr>
-        <td align="right">
+        <td align="center">
             <p>
-                @if (Model.HasPrev)
+               @if (Model.PageCount != null)
+               {
+                   //int prepage = Model.PageIndex - 1;
+                   <a href="@Url.Action("Index", "Home", new { pageIndex = Model.PageIndex-1 })" style="font-size:16pt">上一页</a>
+                   for (int i = 1; i <= Model.PageCount; i++)
+                   {
+                        int page = i;
+                        <a href="@Url.Action("Index", "Home", new { pageIndex = page })" style="font-size:16pt">@page</a>
+                   } 
+                    //int nextpage = Model.PageIndex + 1;
+                     @*@if(Model.HasNext)
+                     { 
+                   <a href="@Url.Action("Index", "Home", new { pageIndex = Model.PageIndex+1 })" style="font-size:16pt">下一页</a>
+                     }*@
+               }
+                @*@if (Model.HasPrev)
                 {
                     int page=Model.PageIndex;
                     <a href="@Url.Action("Index", "Home", new { pageIndex = Model.PageIndex - 1 })">《@page</a>
@@ -59,7 +74,7 @@
                 {
                     int page = Model.PageIndex + 1;
                     <em style="color:Gray ">@page》</em>
-                }
+                }*@
             </p>
         </td>
     </tr>

@@ -21,6 +21,8 @@ namespace Koo.Web.Areas.BBS.Models
 
         public DateTime CreateDate { get; set; }
 
+        public int? Post_Id { get; set; }
+
     }
 
 

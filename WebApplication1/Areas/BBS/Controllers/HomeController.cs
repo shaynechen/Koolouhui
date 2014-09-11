@@ -32,7 +32,8 @@ namespace Koo.Web.BBS.Controllers
 
         public ActionResult Index(int pageIndex = 1)
         {
-            PagingHelper<Post> postPaging = new PagingHelper<Post>(2, db.Posts.ToList());//初始化分页器
+            IList<Post> data = db.Posts.ToList<Post>();
+            PagingHelper<Post> postPaging = new PagingHelper<Post>(defaultPageSize, data);//初始化分页器
             postPaging.PageIndex = pageIndex;//指定当前页
             return View(postPaging);//返回分页器实例到视图
         }
@@ -44,7 +45,7 @@ namespace Koo.Web.BBS.Controllers
         //    return View(db.Posts.ToList());
         //}
 
-        // GET: BBS/Posts/Details/5
+        // GET: BBS/Home/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -64,7 +65,7 @@ namespace Koo.Web.BBS.Controllers
             return View(post);
         }
 
-        // GET: BBS/Posts/Create
+        // GET: BBS/Home/Create
         public ActionResult Create()
         {
             return View();
@@ -72,10 +73,10 @@ namespace Koo.Web.BBS.Controllers
 
         public ActionResult Browser(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Post post = db.Posts.Find(id);
             if (post == null)
             {
@@ -89,7 +90,32 @@ namespace Koo.Web.BBS.Controllers
             return View(post);
         }
 
-        // POST: BBS/Posts/Create
+
+        [ValidateInput(false)]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Reply([Bind(Include = "Id,Title,Content,CreatedUser,CreateDate,Post_Id")] Post post)
+        {
+            int dirid = post.Id;
+            if (post!=null)
+            {
+                if (post.Id != 0)
+                {
+                    post.Post_Id = post.Id;
+                }
+                post.CreateDate = DateTime.Now;
+                string createUserName = User.Identity.Name;
+                ApplicationUser createUser = db.Users.First(u => u.UserName == createUserName);
+                if (createUser != null)
+                    post.CreatedUser = createUser;
+                //User.Identity.Name
+                db.Posts.Add(post);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Detail/" + dirid);
+        }
+
+        // POST: BBS/Home/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
@@ -107,7 +133,7 @@ namespace Koo.Web.BBS.Controllers
             return View(post);
         }
 
-        // GET: BBS/Posts/Edit/5
+        // GET: BBS/Home/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -122,7 +148,7 @@ namespace Koo.Web.BBS.Controllers
             return View(post);
         }
 
-        // POST: BBS/Posts/Edit/5
+        // POST: BBS/Home/Edit/5
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
@@ -138,7 +164,7 @@ namespace Koo.Web.BBS.Controllers
             return View(post);
         }
 
-        // GET: BBS/Posts/Delete/5
+        // GET: BBS/Home/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -153,7 +179,7 @@ namespace Koo.Web.BBS.Controllers
             return View(post);
         }
 
-        // POST: BBS/Posts/Delete/5
+        // POST: BBS/Home/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

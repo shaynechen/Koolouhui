@@ -9,33 +9,8 @@
     </div>
 </div>
 
-@*<h2>Details</h2>*@
-
-@*<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-    </dl>
-</div>*@
-
-
 <div class="container">
-    <div >
+    <div>
         <div class="grid">
             <div class="row" style="margin-top:0px;">
                 <div class="span7">
@@ -53,32 +28,56 @@
                         </div>
                     </div>
                     <div class="row" style="margin-top:5px">
-                        <div class="example">
+                        <div class="example text-left">
                             @Model.Content
                         </div>
                     </div>
+                    <form action="~/bbs/home/reply" name="relyForm" method="post">
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.Id)
+                        @Html.HiddenFor(model => model.Title)
+                        <div class="input-control textarea">
+                            <textarea id="Content" name="Content"></textarea>
+                            @*<input type="hidden"  id="Id" name="Id"/>@Model.Id*@
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <button class="button bg-hover-darkOrange bg-orange">回复</button>
+                        </div>
+                    </form>
                 </div>
-                @*<div class="span4 bg-red">
-                    @Model.Content
-                </div>*@
-                @*<nav class="sidebar light fixed-top" style="width:100px;height:100px; text-align:right;vertical-align:top" >
-                    <ul class="fixed-top">
-                        <li class="fixed-top">
-                            @Model.Content
+
+                <nav class="light fixed-top" style="height:100px;text-align:center">
+                    <ul class="">
+                        <li class="margin5 title">
+                            <a href="/bbs/home/create" class="button bg-lightOrange bg-active-brown" style="width:100px">发表新贴</a>
+                        </li>
+                        <li class="margin5">
+                            <a href="" class="button bg-lightOrange bg-active-brown" style="width:100px">回复</a>
                         </li>
                     </ul>
-                </nav>*@
+                </nav>
             </div>
         </div>
-        
+
     </div>
+    @section Scripts {
+        @Scripts.Render("~/Content/ueditor/ueditor.config.js", "~/Content/ueditor/ueditor.all.js")
+        <script type="text/javascript">
+            var editorOption = {
+                initialFrameWidth: 784,
+                initialFrameHeight: 400
+            };
+            var editor = new baidu.editor.ui.Editor(editorOption);
+            editor.render('Content');
+            $('form').submit(function () {
+                $('#Content').val(editor.getContent());
+            });
+        </script>
+    }
+
     <p>
-        @Html.ActionLink("Reply", "Home", new { id = Model.Id }) |
+        @*@Html.ActionLink("Reply", "Home", new { id = Model.Id }) |*@
         @Html.ActionLink("Back to List", "Index")
     </p>
 
 </div>
-
-
-
-
