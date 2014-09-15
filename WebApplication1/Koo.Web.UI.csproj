@@ -174,10 +174,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\BBS\BBSAreaRegistration.cs" />
     <Compile Include="Areas\BBS\Controllers\HomeController.cs" />
+    <Compile Include="Areas\BBS\Models\ProcessModel.cs" />
+    <Compile Include="Areas\BBS\Models\PostType.cs" />
     <Compile Include="Areas\BBS\Models\Area.cs" />
     <Compile Include="Areas\BBS\Models\PagingHelper.cs" />
     <Compile Include="Areas\BBS\Models\Post.cs" />
     <Compile Include="Areas\BBS\Controllers\PostsController.cs" />
+    <Compile Include="Areas\BBS\Models\PostViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Content\ueditor\net\App_Code\Config.cs" />
     <Compile Include="Content\ueditor\net\App_Code\ConfigHandler.cs" />
     <Compile Include="Content\ueditor\net\App_Code\CrawlerHandler.cs" />
@@ -232,6 +237,14 @@
     <Compile Include="Migrations\201409110858254_update-database.cs" />
     <Compile Include="Migrations\201409110858254_update-database.Designer.cs">
       <DependentUpon>201409110858254_update-database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409150827035_add posttype.cs" />
+    <Compile Include="Migrations\201409150827035_add posttype.Designer.cs">
+      <DependentUpon>201409150827035_add posttype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409151016167_replyid.cs" />
+    <Compile Include="Migrations\201409151016167_replyid.Designer.cs">
+      <DependentUpon>201409151016167_replyid.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1132,6 +1145,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409110858254_update-database.resx">
       <DependentUpon>201409110858254_update-database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409150827035_add posttype.resx">
+      <DependentUpon>201409150827035_add posttype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409151016167_replyid.resx">
+      <DependentUpon>201409151016167_replyid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

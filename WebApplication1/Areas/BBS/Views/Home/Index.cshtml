@@ -26,7 +26,15 @@
                     <label title="发贴人和时间">shayne&nbsp;&nbsp;@Data.CreateDate</label>
                 </span>
             </td>
-            <td><label title="回复数" class="text-right" style="padding-right:10px">1</label></td>
+            @if (Data.RepliedPosts != null)
+            { 
+                 <td><label title="回复数" class="text-right" style="padding-right:10px">@Data.RepliedPosts.Count</label></td>
+            }
+            else
+            {
+                 <td><label title="回复数" class="text-right" style="padding-right:10px">0</label></td>
+            }
+           
         </tr>
         <tr style="width:800px" class="text-center">
             <td colspan="3" style="height:0px">

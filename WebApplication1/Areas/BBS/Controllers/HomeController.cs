@@ -52,7 +52,7 @@ namespace Koo.Web.BBS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+            PostViewModel post = (PostViewModel)db.Posts.Find(id);
             if (post == null)
             {
                 return HttpNotFound();
@@ -60,7 +60,18 @@ namespace Koo.Web.BBS.Controllers
             else 
             {
                 post.BrowseNum += 1;
-                IList<Post> replyPost = db.Posts.Where(c => c.Post_Id!=null && c.Post_Id == id).OrderByDescending(c=>c.CreateDate).ToList<Post>();
+                //IList<Post> data = db.Posts.ToList<Post>();
+                //string createUserName = User.Identity.Name;
+                //IList<ApplicationUser> data1 = db.Users.ToList<ApplicationUser>();
+                //ApplicationUser createUser = db.Users.First(u => u.UserName == createUserName);
+                //if (createUser != null)
+                //    post.CreatedUser = createUser;
+
+                IList<Post> replyPost = db.Posts.Where(c => c.Post_Id != null && c.Post_Id == id).OrderByDescending(c => c.CreateDate).ToList<Post>();
+                //foreach (Post replymodel in replyPost) 
+                //{ 
+                    
+                //}
                 post.RepliedPosts = replyPost;
                 db.SaveChanges();
             }
@@ -102,7 +113,7 @@ namespace Koo.Web.BBS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Reply([Bind(Include = "Id,Title,Content,CreatedUser,CreateDate,Post_Id")] Post post)
         {
-            int dirid = post.Id;
+            int replyId = post.Id;
             if (post!=null)
             {
                 if (post.Id != 0)
@@ -114,11 +125,10 @@ namespace Koo.Web.BBS.Controllers
                 ApplicationUser createUser = db.Users.First(u => u.UserName == createUserName);
                 if (createUser != null)
                     post.CreatedUser = createUser;
-                //User.Identity.Name
                 db.Posts.Add(post);
                 db.SaveChanges();
             }
-            return RedirectToAction("Detail/" + dirid);
+            return RedirectToAction("Details/" + replyId);
         }
 
         // POST: BBS/Home/Create
@@ -138,6 +148,18 @@ namespace Koo.Web.BBS.Controllers
 
             return View(post);
         }
+        //public ActionResult Create([Bind(Include = "Id,Title,Content")] ProcessModel process)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        process.Post.CreateDate = DateTime.Now;
+        //        db.Posts.Add(process.Post);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(process.Post);
+        //}
 
         // GET: BBS/Home/Edit/5
         public ActionResult Edit(int? id)
@@ -177,7 +199,8 @@ namespace Koo.Web.BBS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+            Post post = db.Posts.Find(id); 
+           
             if (post == null)
             {
                 return HttpNotFound();
