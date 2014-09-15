@@ -60,6 +60,8 @@ namespace Koo.Web.BBS.Controllers
             else 
             {
                 post.BrowseNum += 1;
+                IList<Post> replyPost = db.Posts.Where(c => c.Post_Id!=null && c.Post_Id == id).OrderByDescending(c=>c.CreateDate).ToList<Post>();
+                post.RepliedPosts = replyPost;
                 db.SaveChanges();
             }
             return View(post);
@@ -90,7 +92,11 @@ namespace Koo.Web.BBS.Controllers
             return View(post);
         }
 
-
+        /// <summary>
+        /// 回复的方法
+        /// </summary>
+        /// <param name="post"></param>
+        /// <returns></returns>
         [ValidateInput(false)]
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -32,6 +32,38 @@
                             @Model.Content
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div>
+                            <label title="最后一次回帖状态">共 @Model.RepliedPosts.Count 个关于 @Model.Title 的回复 最后回复于 @Model.RepliedPosts.First(c=>c.CreateDate!=null).CreateDate</label>
+                        </div>
+                    </div>
+
+                        <!--回复板块-->
+                    <p>
+                        @foreach (var Data in Model.RepliedPosts)
+                        {
+                            <div class="row">
+                                <div>
+                                    <div class="row example">
+                                        <div class="span1" style="grid-row-span: 2;">
+                                            <span class="icon-pictures"></span>
+                                        </div>
+                                        <div class="span6" style="">
+                                            <div>
+                                                <label title="回复人和时间">shayne @Data.CreateDate</label>
+                                            </div>
+                                            <div>
+                                                <label title="回帖内容">@Data.Content</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </p>
+
+
                     <form action="~/bbs/home/reply" name="relyForm" method="post">
                         @Html.AntiForgeryToken()
                         @Html.HiddenFor(model => model.Id)
@@ -44,7 +76,9 @@
                             <button class="button bg-hover-darkOrange bg-orange">回复</button>
                         </div>
                     </form>
+
                 </div>
+               
 
                 <nav class="light fixed-top" style="height:100px;text-align:center">
                     <ul class="">
